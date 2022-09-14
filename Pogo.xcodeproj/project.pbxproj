@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E131378F28CFA16B00754132 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E131378E28CFA16B00754132 /* main.swift */; };
+		E131379D28CFB9B100754132 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = E131379C28CFB9B100754132 /* ArgumentParser */; };
+		E17927D828D247B2009D8F83 /* SWCompression in Frameworks */ = {isa = PBXBuildFile; productRef = E17927D728D247B2009D8F83 /* SWCompression */; };
+		E17927DA28D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb in Frameworks */ = {isa = PBXBuildFile; fileRef = E17927D928D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb */; };
+		E17927DB28D24E1C009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb in Resources */ = {isa = PBXBuildFile; fileRef = E17927D928D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb */; };
+		E17927DD28D267F4009D8F83 /* bootstrap.tar in Resources */ = {isa = PBXBuildFile; fileRef = E17927DC28D267F4009D8F83 /* bootstrap.tar */; };
+		E181BADA28CF914300CD25A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E181BAD928CF914300CD25A6 /* AppDelegate.swift */; };
+		E181BADE28CF914300CD25A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E181BADD28CF914300CD25A6 /* ViewController.swift */; };
+		E181BAE328CF914500CD25A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E181BAE228CF914500CD25A6 /* Assets.xcassets */; };
+		E181BAE628CF914500CD25A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E181BAE428CF914500CD25A6 /* LaunchScreen.storyboard */; };
+		E1C440AC28D0EDFB000DBB1A /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C440AB28D0EDFB000DBB1A /* CommandRunner.swift */; };
+		E1C440AD28D0EDFB000DBB1A /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C440AB28D0EDFB000DBB1A /* CommandRunner.swift */; };
+		E1C440B528D112F3000DBB1A /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C440B428D112F3000DBB1A /* BaseNavigationController.swift */; };
+		E1C440B728D112FA000DBB1A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C440B628D112FA000DBB1A /* BaseViewController.swift */; };
+		E1C440B928D11300000DBB1A /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C440B828D11300000DBB1A /* ThemeManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E131378528CFA0BC00754132 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E131378228CF9C1B00754132 /* Pogo-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pogo-BridgingHeader.h"; sourceTree = "<group>"; };
+		E131378728CFA0BC00754132 /* PogoHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = PogoHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		E131378E28CFA16B00754132 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E17927D928D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "org.coolstar.sileo_2.4_iphoneos-arm64.deb"; sourceTree = "<group>"; };
+		E17927DC28D267F4009D8F83 /* bootstrap.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = bootstrap.tar; sourceTree = "<group>"; };
+		E181BAD628CF914300CD25A6 /* Pogo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pogo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E181BAD928CF914300CD25A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E181BADD28CF914300CD25A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E181BAE228CF914500CD25A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E181BAE528CF914500CD25A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E181BAE728CF914500CD25A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1C440AB28D0EDFB000DBB1A /* CommandRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
+		E1C440B428D112F3000DBB1A /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		E1C440B628D112FA000DBB1A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E1C440B828D11300000DBB1A /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E131378428CFA0BC00754132 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E17927D828D247B2009D8F83 /* SWCompression in Frameworks */,
+				E131379D28CFB9B100754132 /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E181BAD328CF914300CD25A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E17927DA28D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E131378128CF9B8800754132 /* Required */ = {
+			isa = PBXGroup;
+			children = (
+				E17927DC28D267F4009D8F83 /* bootstrap.tar */,
+				E17927D928D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb */,
+			);
+			path = Required;
+			sourceTree = "<group>";
+		};
+		E131378828CFA0BC00754132 /* PogoHelper */ = {
+			isa = PBXGroup;
+			children = (
+				E131378E28CFA16B00754132 /* main.swift */,
+			);
+			path = PogoHelper;
+			sourceTree = "<group>";
+		};
+		E181BACD28CF914300CD25A6 = {
+			isa = PBXGroup;
+			children = (
+				E181BAD828CF914300CD25A6 /* Pogo */,
+				E131378828CFA0BC00754132 /* PogoHelper */,
+				E181BAD728CF914300CD25A6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E181BAD728CF914300CD25A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E181BAD628CF914300CD25A6 /* Pogo.app */,
+				E131378728CFA0BC00754132 /* PogoHelper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E181BAD828CF914300CD25A6 /* Pogo */ = {
+			isa = PBXGroup;
+			children = (
+				E131378128CF9B8800754132 /* Required */,
+				E181BAD928CF914300CD25A6 /* AppDelegate.swift */,
+				E181BADD28CF914300CD25A6 /* ViewController.swift */,
+				E181BAE228CF914500CD25A6 /* Assets.xcassets */,
+				E181BAE428CF914500CD25A6 /* LaunchScreen.storyboard */,
+				E181BAE728CF914500CD25A6 /* Info.plist */,
+				E131378228CF9C1B00754132 /* Pogo-BridgingHeader.h */,
+				E1C440AB28D0EDFB000DBB1A /* CommandRunner.swift */,
+				E1C440B428D112F3000DBB1A /* BaseNavigationController.swift */,
+				E1C440B628D112FA000DBB1A /* BaseViewController.swift */,
+				E1C440B828D11300000DBB1A /* ThemeManager.swift */,
+			);
+			path = Pogo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E131378628CFA0BC00754132 /* PogoHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E131378B28CFA0BC00754132 /* Build configuration list for PBXNativeTarget "PogoHelper" */;
+			buildPhases = (
+				E131378328CFA0BC00754132 /* Sources */,
+				E131378428CFA0BC00754132 /* Frameworks */,
+				E131378528CFA0BC00754132 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PogoHelper;
+			packageProductDependencies = (
+				E131379C28CFB9B100754132 /* ArgumentParser */,
+				E17927D728D247B2009D8F83 /* SWCompression */,
+			);
+			productName = PogoHelper;
+			productReference = E131378728CFA0BC00754132 /* PogoHelper */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		E181BAD528CF914300CD25A6 /* Pogo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E181BAEA28CF914500CD25A6 /* Build configuration list for PBXNativeTarget "Pogo" */;
+			buildPhases = (
+				E181BAD228CF914300CD25A6 /* Sources */,
+				E181BAD328CF914300CD25A6 /* Frameworks */,
+				E181BAD428CF914300CD25A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pogo;
+			productName = Pogo;
+			productReference = E181BAD628CF914300CD25A6 /* Pogo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E181BACE28CF914300CD25A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					E131378628CFA0BC00754132 = {
+						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
+					};
+					E181BAD528CF914300CD25A6 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = E181BAD128CF914300CD25A6 /* Build configuration list for PBXProject "Pogo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E181BACD28CF914300CD25A6;
+			packageReferences = (
+				E131379B28CFB9B100754132 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				E17927D628D247B2009D8F83 /* XCRemoteSwiftPackageReference "SWCompression" */,
+			);
+			productRefGroup = E181BAD728CF914300CD25A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E181BAD528CF914300CD25A6 /* Pogo */,
+				E131378628CFA0BC00754132 /* PogoHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E181BAD428CF914300CD25A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E17927DD28D267F4009D8F83 /* bootstrap.tar in Resources */,
+				E17927DB28D24E1C009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb in Resources */,
+				E181BAE628CF914500CD25A6 /* LaunchScreen.storyboard in Resources */,
+				E181BAE328CF914500CD25A6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E131378328CFA0BC00754132 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1C440AD28D0EDFB000DBB1A /* CommandRunner.swift in Sources */,
+				E131378F28CFA16B00754132 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E181BAD228CF914300CD25A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1C440B728D112FA000DBB1A /* BaseViewController.swift in Sources */,
+				E1C440B528D112F3000DBB1A /* BaseNavigationController.swift in Sources */,
+				E181BADE28CF914300CD25A6 /* ViewController.swift in Sources */,
+				E181BADA28CF914300CD25A6 /* AppDelegate.swift in Sources */,
+				E1C440AC28D0EDFB000DBB1A /* CommandRunner.swift in Sources */,
+				E1C440B928D11300000DBB1A /* ThemeManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E181BAE428CF914500CD25A6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E181BAE528CF914500CD25A6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E131378C28CFA0BC00754132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J8FJX4SRX;
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				ENABLE_BITCODE = NO;
+				EXECUTABLE_EXTENSION = "";
+				EXECUTABLE_SUFFIX = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Pogo/Pogo-BridgingHeader.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E131378D28CFA0BC00754132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J8FJX4SRX;
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				ENABLE_BITCODE = NO;
+				EXECUTABLE_EXTENSION = "";
+				EXECUTABLE_SUFFIX = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Pogo/Pogo-BridgingHeader.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E181BAE828CF914500CD25A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E181BAE928CF914500CD25A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E181BAEB28CF914500CD25A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7J8FJX4SRX;
+				ENABLE_BITCODE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pogo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pogo/Required",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amywhile.Pogo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Pogo/Pogo-BridgingHeader.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E181BAEC28CF914500CD25A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7J8FJX4SRX;
+				ENABLE_BITCODE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pogo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pogo/Required",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amywhile.Pogo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Pogo/Pogo-BridgingHeader.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E131378B28CFA0BC00754132 /* Build configuration list for PBXNativeTarget "PogoHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E131378C28CFA0BC00754132 /* Debug */,
+				E131378D28CFA0BC00754132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E181BAD128CF914300CD25A6 /* Build configuration list for PBXProject "Pogo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E181BAE828CF914500CD25A6 /* Debug */,
+				E181BAE928CF914500CD25A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E181BAEA28CF914500CD25A6 /* Build configuration list for PBXNativeTarget "Pogo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E181BAEB28CF914500CD25A6 /* Debug */,
+				E181BAEC28CF914500CD25A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E131379B28CFB9B100754132 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		E17927D628D247B2009D8F83 /* XCRemoteSwiftPackageReference "SWCompression" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tsolomko/SWCompression.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E131379C28CFB9B100754132 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E131379B28CFB9B100754132 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		E17927D728D247B2009D8F83 /* SWCompression */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E17927D628D247B2009D8F83 /* XCRemoteSwiftPackageReference "SWCompression" */;
+			productName = SWCompression;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E181BACE28CF914300CD25A6 /* Project object */;
+}
