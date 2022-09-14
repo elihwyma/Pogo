@@ -10,7 +10,6 @@
 		E131378F28CFA16B00754132 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E131378E28CFA16B00754132 /* main.swift */; };
 		E131379D28CFB9B100754132 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = E131379C28CFB9B100754132 /* ArgumentParser */; };
 		E17927D828D247B2009D8F83 /* SWCompression in Frameworks */ = {isa = PBXBuildFile; productRef = E17927D728D247B2009D8F83 /* SWCompression */; };
-		E17927DA28D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb in Frameworks */ = {isa = PBXBuildFile; fileRef = E17927D928D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb */; };
 		E17927DB28D24E1C009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb in Resources */ = {isa = PBXBuildFile; fileRef = E17927D928D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb */; };
 		E17927DD28D267F4009D8F83 /* bootstrap.tar in Resources */ = {isa = PBXBuildFile; fileRef = E17927DC28D267F4009D8F83 /* bootstrap.tar */; };
 		E181BADA28CF914300CD25A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E181BAD928CF914300CD25A6 /* AppDelegate.swift */; };
@@ -68,7 +67,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E17927DA28D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
