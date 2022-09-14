@@ -105,6 +105,15 @@ struct Strap: ParsableCommand {
                 fatalError()
             }
             NSLog("[POGO] Linked to /var/jb")
+            var attributes = [FileAttributeKey: Any]()
+            attributes[.posixPermissions] = 0o755
+            attributes[.ownerAccountName] = "mobile"
+            attributes[.groupOwnerAccountName] = "mobile"
+            do {
+                try FileManager.default.setAttributes(attributes, ofItemAtPath: "/var/jb/var/mobile")
+            } catch {
+                NSLog("[POGO] thats wild")
+            }
         } else if remove {
             let active = "/private/preboot/active"
             let uuid: String
