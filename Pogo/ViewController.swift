@@ -177,6 +177,9 @@ class ViewController: BaseViewController {
         alert.addAction(UIAlertAction(title: "uicache", style: .default, handler: { _ in
             self.runUiCache()
         }))
+        alert.addAction(UIAlertAction(title: "Remount Preboot", style: .default, handler: { _ in
+            spawn(command: "/sbin/mount", args: ["-uw", "/private/preboot"], root: true)
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
