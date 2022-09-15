@@ -30,6 +30,12 @@ class ViewController: BaseViewController {
         remove.setTitle("Remove", for: .normal)
         remove.addTarget(self, action: #selector(startRemove), for: .touchUpInside)
         remove.setTitleColor(.label, for: .normal)
+
+        let tools = UIButton(frame: .zero)
+        tools.translatesAutoresizingMaskIntoConstraints = false
+        tools.setTitle("Tools", for: .normal)
+        tools.addTarget(self, action: #selector(showTools), for: .touchUpInside)
+        tools.setTitleColor(.label, for: .normal)
         
         statusLabel = UILabel(frame: .zero)
         statusLabel!.translatesAutoresizingMaskIntoConstraints = false
@@ -37,6 +43,7 @@ class ViewController: BaseViewController {
         
         view.addSubview(install)
         view.addSubview(remove)
+        view.addSubview(tools)
         view.addSubview(statusLabel!)
         
         NSLayoutConstraint.activate([
@@ -49,11 +56,16 @@ class ViewController: BaseViewController {
             remove.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             remove.heightAnchor.constraint(equalToConstant: 30),
             remove.topAnchor.constraint(equalTo: install.bottomAnchor, constant: 30),
+
+            tools.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tools.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tools.heightAnchor.constraint(equalToConstant: 30),
+            tools.topAnchor.constraint(equalTo: remove.bottomAnchor, constant: 30),
             
             statusLabel!.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             statusLabel!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             statusLabel!.heightAnchor.constraint(equalToConstant: 30),
-            statusLabel!.topAnchor.constraint(equalTo: remove.bottomAnchor, constant: 30)
+            statusLabel!.topAnchor.constraint(equalTo: tools.bottomAnchor, constant: 30)
         ])
     }
     
@@ -137,6 +149,36 @@ class ViewController: BaseViewController {
                 self.statusLabel?.text = "omg its gone!"
             }
         }
+    }
+    @objc private func runUiCache() {
+        DispatchQueue.global(qos: .utility).async {
+            // for every .app file in /var/jb/Applications, run uicache -p
+            let fm = FileManager.default
+            let apps = try? fm.contentsOfDirectory(atPath: "/var/jb/Applications")
+            for app in apps ?? [] {
+                if app.hasSuffix(".app") {
+                    let ret = spawn(command: "/var/jb/usr/bin/uicache", args: ["-p", "/var/jb/Applications/\(app)"], root: true)
+                    DispatchQueue.main.async {
+                        if ret != 0 {
+                            self.statusLabel?.text = "failed to uicache \(ret)"
+                            return
+                        }
+                        self.statusLabel?.text = "uicache succesful, have fun!"
+                    }                
+                }
+            }
+
+        }
+    }
+
+    // tools popup
+    @objc private func showTools() {
+        let alert = UIAlertController(title: "Tools", message: "Select", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "uicache", style: .default, handler: { _ in
+            self.runUiCache()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
 }
