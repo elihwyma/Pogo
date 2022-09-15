@@ -78,6 +78,8 @@ class ViewController: BaseViewController {
         DispatchQueue.global(qos: .utility).async { [self] in
             spawn(command: "/sbin/mount", args: ["-uw", "/private/preboot"], root: true)
             let ret = spawn(command: helper, args: ["-i", tar], root: true)
+            spawn(command: "/var/jb/usr/bin/chmod", args: ["4755", "/var/jb/usr/bin/sudo"], root: true)
+            spawn(command: "/var/jb/usr/bin/chown", args: ["root:wheel", "/var/jb/usr/bin/sudo"], root: true)
             DispatchQueue.main.async {
                 if ret != 0 {
                     self.statusLabel?.text = "Error Installing Bootstrap \(ret)"
