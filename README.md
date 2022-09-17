@@ -6,6 +6,6 @@ out of sheer laziness this uses [SWCompression](https://github.com/tsolomko/SWCo
 
 to build just run `make` in root, needs xcode and other shittery
 
-if u cant build ipa, this is not for you
+if u cant build ipa, use [nightly.link](https://nightly.link/elihwyma/Pogo/workflows/build/main/Pogo) or the artifact.
 
 to install, boot ios with a modified kernel that disables amfi, open this ipa in trollstore and then press install
