@@ -9,3 +9,5 @@ to build just run `make` in root, needs xcode and other shittery
 if u cant build ipa, use [nightly.link](https://nightly.link/elihwyma/Pogo/workflows/build/main/Pogo) or the artifact.
 
 to install, boot ios with a modified kernel that disables amfi, open this ipa in trollstore and then press install
+
+if u want a repo, add mineek.github.io/repo, its not signed atm so make sure to do apt update --allow-insecure-repositories ( if using sileo it works already, make sure to NOT open issues at procursus when using rootless. )
