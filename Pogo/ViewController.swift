@@ -188,9 +188,12 @@ class ViewController: BaseViewController {
             spawn(command: "/sbin/mount", args: ["-uw", "/private/preboot"], root: true)
             self.statusLabel?.text = "Remounted Preboot R/W"
         }))
-        alert.addAction(UIAlertAction(title: "launch daemons", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Launch Daemons", style: .default, handler: { _ in
             spawn(command: "/var/jb/bin/launchctl", args: ["bootstrap", "system", "/var/jb/Library/LaunchDaemons"], root: true)
             self.statusLabel?.text = "done"
+        }))
+        alert.addAction(UIAlertAction(title: "Respring", style: .default, handler: { _ in
+            spawn(command: "/var/jb/usr/bin/sbreload", root: true)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
