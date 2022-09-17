@@ -1,0 +1,20 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+    
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+     - uses: actions/checkout@v3
+      
+     - name: Compile
+       run: make
+     
+     - name: Upload artifact
+       uses: actions/upload-artifact@v3
+       with:
+        name: Pogo
+        path: packages/Pogo.ipa
