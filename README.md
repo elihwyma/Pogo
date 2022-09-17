@@ -6,4 +6,6 @@ out of shere laziness this uses [SWCompression](https://github.com/tsolomko/SWCo
 
 to build just run `make` in root, needs xcode and other shittery
 
+if u cant build ipa, this is not for you
+
 to install, boot ios with a modified kernel that disables amfi, open this ipa in trollstore and then press install
