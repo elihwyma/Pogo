@@ -28,4 +28,7 @@ package:
 
 	@ln -sf $(POGO_STAGE_DIR)/Payload Payload
 
+	@rm -rf packages
+	@mkdir -p packages
+
 	@zip -r9 packages/Pogo.ipa Payload
