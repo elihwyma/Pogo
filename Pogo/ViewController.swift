@@ -103,6 +103,13 @@ class ViewController: BaseViewController {
                     DispatchQueue.main.async {
                         if ret != 0 {
                             self.statusLabel?.text = "Failed to prepare bootstrap \(ret)"
+                            // if ret is -1, it probably means that amfi is not patched, show a alert
+                            if ret == -1 {
+                                let alert = UIAlertController(title: "Error", message: "Failed with -1, are you sure you have amfi patched?", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "NO", style: .default, handler: nil))
+                                // show the alert
+                                self.present(alert, animated: true)
+                            }
                             return
                         }
                         self.statusLabel?.text = "Installing Sileo"
