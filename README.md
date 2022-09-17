@@ -2,7 +2,7 @@ dont use this if you dont know what ur doing. this isnt a jailbreak. this will m
 
 all this code is dog shit, its thrown together with a knife and fork because quite frankly i dont give a fuck and neither should you. queen of ui design
 
-out of shere laziness this uses [SWCompression](https://github.com/tsolomko/SWCompression) for opening up the tar file 
+out of sheer laziness this uses [SWCompression](https://github.com/tsolomko/SWCompression) for opening up the tar file 
 
 to build just run `make` in root, needs xcode and other shittery
 
