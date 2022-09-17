@@ -193,7 +193,7 @@ class ViewController: BaseViewController {
             self.statusLabel?.text = "done"
         }))
         alert.addAction(UIAlertAction(title: "Respring", style: .default, handler: { _ in
-            spawn(command: "/var/jb/usr/bin/sbreload", args: [""], root: true)
+            spawn(command: "/var/jb/usr/bin/sbreload", args: [], root: true)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
