@@ -208,6 +208,12 @@ class ViewController: BaseViewController {
         alert.addAction(UIAlertAction(title: "Respring", style: .default, handler: { _ in
             spawn(command: "/var/jb/usr/bin/sbreload", args: [], root: true)
         }))
+        alert.addAction(UIAlertAction(title: "Do All", style: .default, handler: { _ in
+            self.runUiCache()
+            spawn(command: "/sbin/mount", args: ["-uw", "/private/preboot"], root: true)
+            spawn(command: "/var/jb/bin/launchctl", args: ["bootstrap", "system", "/var/jb/Library/LaunchDaemons"], root: true)
+            spawn(command: "/var/jb/usr/bin/sbreload", args: [], root: true)
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
