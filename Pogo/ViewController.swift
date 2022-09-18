@@ -70,7 +70,7 @@ class ViewController: BaseViewController {
             statusLabel!.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             statusLabel!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             statusLabel!.heightAnchor.constraint(equalToConstant: 30),
-            statusLabel!.topAnchor.constraint(equalTo: tools.bottomAnchor, constant: 30)
+            statusLabel!.topAnchor.constraint(equalTo: tools.bottomAnchor, constant: 30),
 
             version.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             version.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
