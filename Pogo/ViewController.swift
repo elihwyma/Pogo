@@ -40,11 +40,16 @@ class ViewController: BaseViewController {
         statusLabel = UILabel(frame: .zero)
         statusLabel!.translatesAutoresizingMaskIntoConstraints = false
         statusLabel?.textColor = .label
+
+        let version = UILabel(frame: .zero)
+        version.translatesAutoresizingMaskIntoConstraints = false
+        version.textColor = .label
         
         view.addSubview(install)
         view.addSubview(remove)
         view.addSubview(tools)
         view.addSubview(statusLabel!)
+        view.addSubview(version)
         
         NSLayoutConstraint.activate([
             install.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -66,7 +71,15 @@ class ViewController: BaseViewController {
             statusLabel!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             statusLabel!.heightAnchor.constraint(equalToConstant: 30),
             statusLabel!.topAnchor.constraint(equalTo: tools.bottomAnchor, constant: 30)
+
+            version.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            version.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            version.heightAnchor.constraint(equalToConstant: 30),
+            version.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
         ])
+
+        let gitCommit = Bundle.main.infoDictionary?["REVISION"] as? String ?? "unknown"
+        version.text = "v\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown") (\(gitCommit))"
     }
     
     @objc private func startInstall() {

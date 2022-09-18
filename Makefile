@@ -4,8 +4,11 @@ POGOTMP = $(TMPDIR)/pogo
 POGO_STAGE_DIR = $(POGOTMP)/stage
 POGO_APP_DIR 	= $(POGOTMP)/Build/Products/Release-iphoneos/Pogo.app
 POGO_HELPER_PATH 	= $(POGOTMP)/Build/Products/Release-iphoneos/PogoHelper
+GIT_REV=$(shell git rev-parse --short HEAD)
 
-package: 
+package:
+	/usr/libexec/PlistBuddy -c "Set :REVISION ${GIT_REV}" "Pogo/Info.plist"
+
 	@set -o pipefail; \
 		xcodebuild -jobs $(shell sysctl -n hw.ncpu) -project 'Pogo.xcodeproj' -scheme Pogo -configuration Release -arch arm64 -sdk iphoneos -derivedDataPath $(POGOTMP) \
 		CODE_SIGNING_ALLOWED=NO DSTROOT=$(POGOTMP)/install ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=NO
