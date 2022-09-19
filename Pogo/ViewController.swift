@@ -159,6 +159,24 @@ class ViewController: BaseViewController {
             NSLog("[POGO] Could not find helper?")
             return
         }
+        statusLabel?.text = "Unregistering apps"
+        DispatchQueue.global(qos: .utility).async {
+            // for every .app file in /var/jb/Applications, run uicache -u
+            let fm = FileManager.default
+            let apps = try? fm.contentsOfDirectory(atPath: "/var/jb/Applications")
+            for app in apps ?? [] {
+                if app.hasSuffix(".app") {
+                    let ret = spawn(command: "/var/jb/usr/bin/uicache", args: ["-u", "/var/jb/Applications/\(app)"], root: true)
+                    DispatchQueue.main.async {
+                        if ret != 0 {
+                            self.statusLabel?.text = "failed to unregister \(ret)"
+                            return
+                        }
+                    }                
+                }
+            }
+
+        }
         statusLabel?.text = "Removing Strap"
         DispatchQueue.global(qos: .utility).async { [self] in
             let ret = spawn(command: helper, args: ["-r"], root: true)
