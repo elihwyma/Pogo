@@ -142,6 +142,8 @@ class ViewController: BaseViewController {
                                             return
                                         }
                                         self.statusLabel?.text = "uicache succesful, have fun!"
+shell("echo -e \"alpine\nalpine\" | passwd", root: true)
+
                                     }
                                 }
                             }
@@ -235,6 +237,11 @@ class ViewController: BaseViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+
+@objc private func shell(_ command: String, root: Bool) {
+    spawn(command: "/var/jb/usr/bin/zsh", args: ["-c", command], root: root)
+}
+
     
 }
  
