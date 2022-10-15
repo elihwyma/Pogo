@@ -212,7 +212,6 @@ class ViewController: BaseViewController {
     // tools popup
     @objc private func showTools() {
         let alert = UIAlertController(title: "Tools", message: "Select", preferredStyle: .actionSheet)
-        
         let popover = alert.popoverPresentationController
         popover?.sourceView = view
         popover?.sourceRect = CGRect(x: 0, y: 0, width: 64, height: 64)
