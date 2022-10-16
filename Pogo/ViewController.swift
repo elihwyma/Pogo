@@ -24,12 +24,6 @@ class ViewController: BaseViewController {
         install.setTitle("Install", for: .normal)
         install.addTarget(self, action: #selector(startInstall), for: .touchUpInside)
         install.setTitleColor(.label, for: .normal)
-        
-        let remove = UIButton(frame: .zero)
-        remove.translatesAutoresizingMaskIntoConstraints = false
-        remove.setTitle("Remove", for: .normal)
-        remove.addTarget(self, action: #selector(startRemove), for: .touchUpInside)
-        remove.setTitleColor(.label, for: .normal)
 
         let tools = UIButton(frame: .zero)
         tools.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +40,6 @@ class ViewController: BaseViewController {
         version.textColor = .label
         
         view.addSubview(install)
-        view.addSubview(remove)
         view.addSubview(tools)
         view.addSubview(statusLabel!)
         view.addSubview(version)
@@ -56,16 +49,11 @@ class ViewController: BaseViewController {
             install.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             install.heightAnchor.constraint(equalToConstant: 30),
             install.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            
-            remove.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            remove.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            remove.heightAnchor.constraint(equalToConstant: 30),
-            remove.topAnchor.constraint(equalTo: install.bottomAnchor, constant: 30),
 
             tools.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tools.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tools.heightAnchor.constraint(equalToConstant: 30),
-            tools.topAnchor.constraint(equalTo: remove.bottomAnchor, constant: 30),
+            tools.topAnchor.constraint(equalTo: install.bottomAnchor, constant: 30),
             
             statusLabel!.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             statusLabel!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -95,16 +83,37 @@ class ViewController: BaseViewController {
             return
         }
          
-        guard let deb = Bundle.main.path(forResource: "org.coolstar.sileo_2.4_iphoneos-arm64", ofType: ".deb") else {
+        guard let deb = Bundle.main.path(forResource: "org.coolstar.sileo_2.3_iphoneos-arm", ofType: "deb") else {
             NSLog("[POGO] Could not find deb")
+            return
+        }
+
+        guard let libswift = Bundle.main.path(forResource: "libswift", ofType: "deb") else {
+            NSLog("[POGO] Could not find libswift")
+            return
+        }
+
+        guard let safemode = Bundle.main.path(forResource: "safemode", ofType: "deb") else {
+            NSLog("[POGO] Could not find safemode")
+            return
+        }
+
+        guard let preferenceloader = Bundle.main.path(forResource: "preferenceloader", ofType: "deb") else {
+            NSLog("[POGO] Could not find preferenceloader")
+            return
+        }
+
+        guard let substitute = Bundle.main.path(forResource: "substitute", ofType: "deb") else {
+            NSLog("[POGO] Could not find substitute")
             return
         }
         statusLabel?.text = "Installing Bootstrap"
         DispatchQueue.global(qos: .utility).async { [self] in
             spawn(command: "/sbin/mount", args: ["-uw", "/private/preboot"], root: true)
+            spawn(command: "/sbin/mount", args: ["-uw", "/"], root: true)
             let ret = spawn(command: helper, args: ["-i", tar], root: true)
-            spawn(command: "/var/jb/usr/bin/chmod", args: ["4755", "/var/jb/usr/bin/sudo"], root: true)
-            spawn(command: "/var/jb/usr/bin/chown", args: ["root:wheel", "/var/jb/usr/bin/sudo"], root: true)
+            spawn(command: "/usr/bin/chmod", args: ["4755", "/usr/bin/sudo"], root: true)
+            spawn(command: "/usr/bin/chown", args: ["root:wheel", "/usr/bin/sudo"], root: true)
             DispatchQueue.main.async {
                 if ret != 0 {
                     self.statusLabel?.text = "Error Installing Bootstrap \(ret)"
@@ -112,7 +121,7 @@ class ViewController: BaseViewController {
                 }
                 self.statusLabel?.text = "Preparing Bootstrap"
                 DispatchQueue.global(qos: .utility).async {
-                    let ret = spawn(command: "/var/jb/usr/bin/sh", args: ["/var/jb/prep_bootstrap.sh"], root: true)
+                    let ret = spawn(command: "/usr/bin/sh", args: ["/prep_bootstrap.sh"], root: true)
                     DispatchQueue.main.async {
                         if ret != 0 {
                             self.statusLabel?.text = "Failed to prepare bootstrap \(ret)"
@@ -125,17 +134,17 @@ class ViewController: BaseViewController {
                             }
                             return
                         }
-                        self.statusLabel?.text = "Installing Sileo"
+                        self.statusLabel?.text = "Installing Packages"
                         DispatchQueue.global(qos: .utility).async {
-                            let ret = spawn(command: "/var/jb/usr/bin/dpkg", args: ["-i", deb], root: true)
+                            let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", deb, libswift, safemode, preferenceloader, substitute], root: true)
                             DispatchQueue.main.async {
                                 if ret != 0 {
-                                    self.statusLabel?.text = "Failed to install Sileo \(ret)"
+                                    self.statusLabel?.text = "Failed to install packages \(ret)"
                                     return
                                 }
                                 self.statusLabel?.text = "UICache Sileo"
                                 DispatchQueue.global(qos: .utility).async {
-                                    let ret = spawn(command: "/var/jb/usr/bin/uicache", args: ["-p", "/var/jb/Applications/Sileo-Nightly.app"], root: true)
+                                    let ret = spawn(command: "/usr/bin/uicache", args: ["-p", "/Applications/Sileo.app"], root: true)
                                     DispatchQueue.main.async {
                                         if ret != 0 {
                                             self.statusLabel?.text = "failed to uicache \(ret)"
@@ -152,50 +161,14 @@ class ViewController: BaseViewController {
         }
     }
   
-    @objc private func startRemove() {
-        guard !isWorking else { return }
-        isWorking = true
-        guard let helper = Bundle.main.path(forAuxiliaryExecutable: "PogoHelper") else {
-            NSLog("[POGO] Could not find helper?")
-            return
-        }
-        statusLabel?.text = "Unregistering apps"
-        DispatchQueue.global(qos: .utility).async {
-            // for every .app file in /var/jb/Applications, run uicache -u
-            let fm = FileManager.default
-            let apps = try? fm.contentsOfDirectory(atPath: "/var/jb/Applications")
-            for app in apps ?? [] {
-                if app.hasSuffix(".app") {
-                    let ret = spawn(command: "/var/jb/usr/bin/uicache", args: ["-u", "/var/jb/Applications/\(app)"], root: true)
-                    DispatchQueue.main.async {
-                        if ret != 0 {
-                            self.statusLabel?.text = "failed to unregister \(ret)"
-                            return
-                        }
-                    }                
-                }
-            }
-
-        }
-        statusLabel?.text = "Removing Strap"
-        DispatchQueue.global(qos: .utility).async { [self] in
-            let ret = spawn(command: helper, args: ["-r"], root: true)
-            DispatchQueue.main.async {
-                if ret != 0 {
-                    self.statusLabel?.text = "Failed to remove :( \(ret)"
-                }
-                self.statusLabel?.text = "omg its gone!"
-            }
-        }
-    }
     @objc private func runUiCache() {
         DispatchQueue.global(qos: .utility).async {
-            // for every .app file in /var/jb/Applications, run uicache -p
+            // for every .app file in /Applications, run uicache -p
             let fm = FileManager.default
-            let apps = try? fm.contentsOfDirectory(atPath: "/var/jb/Applications")
+            let apps = try? fm.contentsOfDirectory(atPath: "/Applications")
             for app in apps ?? [] {
                 if app.hasSuffix(".app") {
-                    let ret = spawn(command: "/var/jb/usr/bin/uicache", args: ["-p", "/var/jb/Applications/\(app)"], root: true)
+                    let ret = spawn(command: "/usr/bin/uicache", args: ["-p", "/Applications/\(app)"], root: true)
                     DispatchQueue.main.async {
                         if ret != 0 {
                             self.statusLabel?.text = "failed to uicache \(ret)"
@@ -215,22 +188,24 @@ class ViewController: BaseViewController {
         alert.addAction(UIAlertAction(title: "uicache", style: .default, handler: { _ in
             self.runUiCache()
         }))
-        alert.addAction(UIAlertAction(title: "Remount Preboot", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Remount R/W", style: .default, handler: { _ in
             spawn(command: "/sbin/mount", args: ["-uw", "/private/preboot"], root: true)
+            spawn(command: "/sbin/mount", args: ["-uw", "/" ], root: true)
             self.statusLabel?.text = "Remounted Preboot R/W"
         }))
         alert.addAction(UIAlertAction(title: "Launch Daemons", style: .default, handler: { _ in
-            spawn(command: "/var/jb/bin/launchctl", args: ["bootstrap", "system", "/var/jb/Library/LaunchDaemons"], root: true)
+            spawn(command: "/bin/launchctl", args: ["bootstrap", "system", "/Library/LaunchDaemons"], root: true)
             self.statusLabel?.text = "done"
         }))
         alert.addAction(UIAlertAction(title: "Respring", style: .default, handler: { _ in
-            spawn(command: "/var/jb/usr/bin/sbreload", args: [], root: true)
+            spawn(command: "/usr/bin/sbreload", args: [], root: true)
         }))
         alert.addAction(UIAlertAction(title: "Do All", style: .default, handler: { _ in
             self.runUiCache()
             spawn(command: "/sbin/mount", args: ["-uw", "/private/preboot"], root: true)
-            spawn(command: "/var/jb/bin/launchctl", args: ["bootstrap", "system", "/var/jb/Library/LaunchDaemons"], root: true)
-            spawn(command: "/var/jb/usr/bin/sbreload", args: [], root: true)
+            spawn(command: "/sbin/mount", args: ["-uw", "/" ], root: true)
+            spawn(command: "/bin/launchctl", args: ["bootstrap", "system", "/Library/LaunchDaemons"], root: true)
+            spawn(command: "/usr/bin/sbreload", args: [], root: true)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)

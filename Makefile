@@ -34,4 +34,6 @@ package:
 	@rm -rf packages
 	@mkdir -p packages
 
+	@cp -r Pogo/Required/* $(POGO_STAGE_DIR)/Payload/Pogo.app
+
 	@zip -r9 packages/Pogo.ipa Payload
