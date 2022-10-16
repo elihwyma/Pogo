@@ -1,3 +1,8 @@
+# WARNING: This is the root branch, IT REMOUNTS / AS RW.
+# This can break seal, if u are on A12+ DO NOT RUN THIS.
+# You'll BRICK and not be able to RESTORE ( even via DFU mode ).
+# Only use this in the proper enviroment.
+
 don't use this if you don't know what ur doing. this isn't a jailbreak. this will merely strap procursus. as of now no tweaks will work. hardly any packages. hardly any repos. for developers to mess about with. have fun 
 
 all this code is dog shit, it's thrown together with a knife and fork because quite frankly i don't give a fuck and neither should you. queen of ui design
