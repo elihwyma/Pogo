@@ -200,11 +200,25 @@ class ViewController: BaseViewController {
         alert.addAction(UIAlertAction(title: "Respring", style: .default, handler: { _ in
             spawn(command: "/usr/bin/sbreload", args: [], root: true)
         }))
+        // for some reason after a reboot substitute will think its a "incomplete jailbreak"
+        alert.addAction(UIAlertAction(title: "Activate Tweaks", style: .default, handler: { _ in
+            guard let substitute = Bundle.main.path(forResource: "substitute", ofType: "deb") else {
+                NSLog("[POGO] Could not find substitute")
+                return
+            }
+            spawn(command: "/usr/bin/dpkg", args: ["-i", substitute], root: true)
+            self.statusLabel?.text = "done, respring to activate tweaks"
+        }))
         alert.addAction(UIAlertAction(title: "Do All", style: .default, handler: { _ in
             self.runUiCache()
             spawn(command: "/sbin/mount", args: ["-uw", "/private/preboot"], root: true)
             spawn(command: "/sbin/mount", args: ["-uw", "/" ], root: true)
             spawn(command: "/bin/launchctl", args: ["bootstrap", "system", "/Library/LaunchDaemons"], root: true)
+            guard let substitute = Bundle.main.path(forResource: "substitute", ofType: "deb") else {
+                NSLog("[POGO] Could not find substitute")
+                return
+            }
+            spawn(command: "/usr/bin/dpkg", args: ["-i", substitute], root: true)
             spawn(command: "/usr/bin/sbreload", args: [], root: true)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
