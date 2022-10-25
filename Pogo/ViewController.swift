@@ -175,14 +175,12 @@ class ViewController: BaseViewController {
                     }                
                 }
             }
-
-        }
-        statusLabel?.text = "Removing Strap"
-        DispatchQueue.global(qos: .utility).async { [self] in
+            self.statusLabel?.text = "Removing Strap"
             let ret = spawn(command: helper, args: ["-r"], root: true)
             DispatchQueue.main.async {
                 if ret != 0 {
                     self.statusLabel?.text = "Failed to remove :( \(ret)"
+                    return
                 }
                 self.statusLabel?.text = "omg its gone!"
             }
