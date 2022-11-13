@@ -144,7 +144,7 @@ class ViewController: BaseViewController {
                                 }
                                 self.statusLabel?.text = "UICache Sileo"
                                 DispatchQueue.global(qos: .utility).async {
-                                    let ret = spawn(command: "/usr/bin/uicache", args: ["-p", "/Applications/Sileo.app"], root: true)
+                                    let ret = spawn(command: "/usr/bin/uicache", args: ["-p", "'/Applications/Sileo Nightly.app'"], root: true)
                                     DispatchQueue.main.async {
                                         if ret != 0 {
                                             self.statusLabel?.text = "failed to uicache \(ret)"
