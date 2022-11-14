@@ -83,7 +83,7 @@ class ViewController: BaseViewController {
             return
         }
          
-        guard let deb = Bundle.main.path(forResource: "org.coolstar.sileonightly_2.420221112.1668273314.01ea368_iphoneos-arm", ofType: "deb") else {
+        guard let deb = Bundle.main.path(forResource: "org.coolstar.sileonightly_2.4+20221114.1668456007.4b8fd6c_iphoneos-arm", ofType: "deb") else {
             NSLog("[POGO] Could not find deb")
             return
         }
@@ -152,7 +152,7 @@ class ViewController: BaseViewController {
                                         }
                                         self.statusLabel?.text = "Make symbolic link"
                                         DispatchQueue.global(qos: .utility).async {
-                                            let ret = spawn(command: "/bin/ln", args: ["-s", "/", "/var/jb"], root: true)
+                                            let ret = spawn(command: "/bin/ln", args: ["-sf", "/", "/var/jb"], root: true)
                                             DispatchQueue.main.async {
                                                 if ret != 0 {
                                                     self.statusLabel?.text = "failed to ln \(ret)"
