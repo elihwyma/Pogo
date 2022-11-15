@@ -176,8 +176,9 @@ class ViewController: BaseViewController {
             // for every .app file in /Applications, run uicache -p
             let fm = FileManager.default
             let apps = try? fm.contentsOfDirectory(atPath: "/Applications")
+            let excludeApps: [String] = ["Xcode Previews.app", "Sidecar.app"]
             for app in apps ?? [] {
-                if app.hasSuffix(".app") {
+                if app.hasSuffix(".app") && !excludeApps.contains(app) {
                     let ret = spawn(command: "/usr/bin/uicache", args: ["-p", "/Applications/\(app)"], root: true)
                     DispatchQueue.main.async {
                         if ret != 0 {
