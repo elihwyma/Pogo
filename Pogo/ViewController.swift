@@ -144,21 +144,31 @@ class ViewController: BaseViewController {
                                 }
                                 self.statusLabel?.text = "UICache Sileo"
                                 DispatchQueue.global(qos: .utility).async {
-                                    let ret = spawn(command: "/usr/bin/uicache", args: ["-p", "'/Applications/Sileo Nightly.app'"], root: true)
+                                    let ret = spawn(command: "/usr/bin/uicache", args: ["-p", "/Applications/Sileo-Nightly.app"], root: true)
                                     DispatchQueue.main.async {
                                         if ret != 0 {
                                             self.statusLabel?.text = "failed to uicache \(ret)"
                                             return
                                         }
-                                        self.statusLabel?.text = "Make symbolic link"
+                                        self.statusLabel?.text = "Remove old symbolic link"
                                         DispatchQueue.global(qos: .utility).async {
-                                            let ret = spawn(command: "/bin/ln", args: ["-sf", "/", "/var/jb"], root: true)
+                                            let ret = spawn(command: "/bin/rm", args: ["-rf", "/var/jb"], root: true)
                                             DispatchQueue.main.async {
                                                 if ret != 0 {
-                                                    self.statusLabel?.text = "failed to ln \(ret)"
+                                                    self.statusLabel?.text = "failed to remove old link \(ret)"
                                                     return
                                                 }
-                                                self.statusLabel?.text = "link succesful, have fun!"
+                                                self.statusLabel?.text = "Make symbolic link"
+                                                DispatchQueue.global(qos: .utility).async {
+                                                    let ret = spawn(command: "/bin/ln", args: ["-sf", "/", "/var/jb"], root: true)
+                                                    DispatchQueue.main.async {
+                                                        if ret != 0 {
+                                                            self.statusLabel?.text = "failed to link \(ret)"
+                                                            return
+                                                        }
+                                                        self.statusLabel?.text = "link succesful, have fun!"
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -225,6 +235,7 @@ class ViewController: BaseViewController {
             self.statusLabel?.text = "done, respring to activate tweaks"
         }))
         alert.addAction(UIAlertAction(title: "Do All", style: .default, handler: { _ in
+            self.statusLabel?.text = "doing all tools, this may take a second"
             self.runUiCache()
             spawn(command: "/sbin/mount", args: ["-uw", "/private/preboot"], root: true)
             spawn(command: "/sbin/mount", args: ["-uw", "/" ], root: true)
