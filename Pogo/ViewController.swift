@@ -83,7 +83,7 @@ class ViewController: BaseViewController {
             return
         }
          
-        guard let deb = Bundle.main.path(forResource: "org.coolstar.sileonightly_2.4+20221114.1668456007.4b8fd6c_iphoneos-arm", ofType: "deb") else {
+        guard let deb = Bundle.main.path(forResource: "org.coolstar.sileo_2.4_iphoneos-arm64", ofType: "deb") else {
             NSLog("[POGO] Could not find deb")
             return
         }
@@ -144,33 +144,13 @@ class ViewController: BaseViewController {
                                 }
                                 self.statusLabel?.text = "UICache Sileo"
                                 DispatchQueue.global(qos: .utility).async {
-                                    let ret = spawn(command: "/usr/bin/uicache", args: ["-p", "/Applications/Sileo-Nightly.app"], root: true)
+                                    let ret = spawn(command: "/usr/bin/uicache", args: ["-p", "/Applications/Sileo.app"], root: true)
                                     DispatchQueue.main.async {
                                         if ret != 0 {
                                             self.statusLabel?.text = "failed to uicache \(ret)"
                                             return
                                         }
-                                        self.statusLabel?.text = "Remove old symbolic link"
-                                        DispatchQueue.global(qos: .utility).async {
-                                            let ret = spawn(command: "/bin/rm", args: ["-rf", "/var/jb"], root: true)
-                                            DispatchQueue.main.async {
-                                                if ret != 0 {
-                                                    self.statusLabel?.text = "failed to remove old link \(ret)"
-                                                    return
-                                                }
-                                                self.statusLabel?.text = "Make symbolic link"
-                                                DispatchQueue.global(qos: .utility).async {
-                                                    let ret = spawn(command: "/bin/ln", args: ["-sf", "/", "/var/jb"], root: true)
-                                                    DispatchQueue.main.async {
-                                                        if ret != 0 {
-                                                            self.statusLabel?.text = "failed to link \(ret)"
-                                                            return
-                                                        }
-                                                        self.statusLabel?.text = "link succesful, have fun!"
-                                                    }
-                                                }
-                                            }
-                                        }
+                                        self.statusLabel?.text = "uicache succesful, have fun!"
                                     }
                                 }
                             }
