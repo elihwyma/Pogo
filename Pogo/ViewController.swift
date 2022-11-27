@@ -207,11 +207,7 @@ class ViewController: BaseViewController {
         }))
         // for some reason after a reboot substitute will think its a "incomplete jailbreak"
         alert.addAction(UIAlertAction(title: "Activate Tweaks", style: .default, handler: { _ in
-            guard let substitute = Bundle.main.path(forResource: "substitute", ofType: "deb") else {
-                NSLog("[POGO] Could not find substitute")
-                return
-            }
-            spawn(command: "/usr/bin/dpkg", args: ["-i", substitute], root: true)
+            spawn(command: "/etc/rc.d/substitute-launcher", args: [], root: true)
             self.statusLabel?.text = "done, respring to activate tweaks"
         }))
         alert.addAction(UIAlertAction(title: "Do All", style: .default, handler: { _ in
