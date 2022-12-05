@@ -202,6 +202,10 @@ class ViewController: BaseViewController {
             spawn(command: "/bin/launchctl", args: ["bootstrap", "system", "/Library/LaunchDaemons"], root: true)
             self.statusLabel?.text = "done"
         }))
+        alert.addAction(UIAlertAction(title: "Launch SSHD manually", style: .default, handler: { _ in
+            spawn(command: "/usr/libexec/sshd-keygen-wrapper", args: [], root: true)
+            self.statusLabel?.text = "done"
+        }))
         alert.addAction(UIAlertAction(title: "Respring", style: .default, handler: { _ in
             spawn(command: "/usr/bin/sbreload", args: [], root: true)
         }))
@@ -216,11 +220,7 @@ class ViewController: BaseViewController {
             spawn(command: "/sbin/mount", args: ["-uw", "/private/preboot"], root: true)
             spawn(command: "/sbin/mount", args: ["-uw", "/" ], root: true)
             spawn(command: "/bin/launchctl", args: ["bootstrap", "system", "/Library/LaunchDaemons"], root: true)
-            guard let substitute = Bundle.main.path(forResource: "substitute", ofType: "deb") else {
-                NSLog("[POGO] Could not find substitute")
-                return
-            }
-            spawn(command: "/usr/bin/dpkg", args: ["-i", substitute], root: true)
+            spawn(command: "/etc/rc.d/substitute-launcher", args: [], root: true)
             spawn(command: "/usr/bin/sbreload", args: [], root: true)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
