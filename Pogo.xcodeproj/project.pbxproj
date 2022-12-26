@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		E131378F28CFA16B00754132 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E131378E28CFA16B00754132 /* main.swift */; };
 		E131379D28CFB9B100754132 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = E131379C28CFB9B100754132 /* ArgumentParser */; };
+		E17384B7295A004B007F9249 /* org.coolstar.sileonightly_2.4_iphoneos-arm64.deb in Frameworks */ = {isa = PBXBuildFile; fileRef = E17384B6295A004B007F9249 /* org.coolstar.sileonightly_2.4_iphoneos-arm64.deb */; };
 		E17927D828D247B2009D8F83 /* SWCompression in Frameworks */ = {isa = PBXBuildFile; productRef = E17927D728D247B2009D8F83 /* SWCompression */; };
-		E17927DB28D24E1C009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb in Resources */ = {isa = PBXBuildFile; fileRef = E17927D928D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb */; };
 		E17927DD28D267F4009D8F83 /* bootstrap.tar in Resources */ = {isa = PBXBuildFile; fileRef = E17927DC28D267F4009D8F83 /* bootstrap.tar */; };
 		E181BADA28CF914300CD25A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E181BAD928CF914300CD25A6 /* AppDelegate.swift */; };
 		E181BADE28CF914300CD25A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E181BADD28CF914300CD25A6 /* ViewController.swift */; };
@@ -39,7 +39,7 @@
 		E131378228CF9C1B00754132 /* Pogo-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pogo-BridgingHeader.h"; sourceTree = "<group>"; };
 		E131378728CFA0BC00754132 /* PogoHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = PogoHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		E131378E28CFA16B00754132 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		E17927D928D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "org.coolstar.sileo_2.4_iphoneos-arm64.deb"; sourceTree = "<group>"; };
+		E17384B6295A004B007F9249 /* org.coolstar.sileonightly_2.4_iphoneos-arm64.deb */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "org.coolstar.sileonightly_2.4_iphoneos-arm64.deb"; sourceTree = "<group>"; };
 		E17927DC28D267F4009D8F83 /* bootstrap.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = bootstrap.tar; sourceTree = "<group>"; };
 		E181BAD628CF914300CD25A6 /* Pogo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pogo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E181BAD928CF914300CD25A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E17384B7295A004B007F9249 /* org.coolstar.sileonightly_2.4_iphoneos-arm64.deb in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				E17927DC28D267F4009D8F83 /* bootstrap.tar */,
-				E17927D928D24DB6009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb */,
+				E17384B6295A004B007F9249 /* org.coolstar.sileonightly_2.4_iphoneos-arm64.deb */,
 			);
 			path = Required;
 			sourceTree = "<group>";
@@ -215,7 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E17927DD28D267F4009D8F83 /* bootstrap.tar in Resources */,
-				E17927DB28D24E1C009D8F83 /* org.coolstar.sileo_2.4_iphoneos-arm64.deb in Resources */,
 				E181BAE628CF914500CD25A6 /* LaunchScreen.storyboard in Resources */,
 				E181BAE328CF914500CD25A6 /* Assets.xcassets in Resources */,
 			);
