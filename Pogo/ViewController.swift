@@ -95,7 +95,7 @@ class ViewController: BaseViewController {
             return
         }
          
-        guard let deb = Bundle.main.path(forResource: "org.coolstar.sileo_2.4_iphoneos-arm64", ofType: ".deb") else {
+        guard let deb = Bundle.main.path(forResource: "org.coolstar.sileonightly_2.4_iphoneos-arm64", ofType: ".deb") else {
             NSLog("[POGO] Could not find deb")
             return
         }
